@@ -40,6 +40,9 @@ NeoBundle 'deris/vim-gothrough-jk'
 NeoBundleCheck
 call neobundle#end()
 filetype plugin indent on
+
+" ===============================================
+" カラースキーマの設定
 set t_Co=256
 syntax on
 colorscheme molokai
