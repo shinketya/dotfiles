@@ -36,6 +36,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'open-browser.vim'
 " j/kの移動高速化
 NeoBundle 'deris/vim-gothrough-jk'
+" processing動かすやつ
+NeoBundle 'sophacles/vim-processing'
 " vimrc に記述されたプラグインでインストールされていないものがないかチェックする
 NeoBundleCheck
 call neobundle#end()
@@ -124,3 +126,7 @@ set matchtime=1
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+" ===============================================
+" processingのやつ
+au BufNewFile,BufRead *,pde setf processing
