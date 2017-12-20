@@ -20,10 +20,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " カラースキーム
 NeoBundle 'tomasr/molokai'
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/rdark'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'vim-scripts/twilight'
 
 " ===============================================
 " ステータスラインの表示内容強化
@@ -47,7 +43,7 @@ filetype plugin indent on
 " カラースキーマの設定
 set t_Co=256
 syntax on
-colorscheme molokai
+colorscheme hybrid
 set background=dark
 
 " ===============================================
