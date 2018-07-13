@@ -1,54 +1,66 @@
-" ===============================================
+" ========================================
 " プラグイン
-" ===============================================
-if has('vim_starting')
-  set nocompatible
-  " neobundle をインストールしていない場合は自動インストールする
-  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-    echo "install neobundle..."
-    " vim からコマンド呼び出してneobundle.vim のクローンつくる
-    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-  endif
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+" ========================================
+
+"dein Scripts-----------------------------
+if &compatible
+	set nocompatible               " Be iMproved
 endif
-call neobundle#begin(expand('~/.vim/bundle'))
-let g:neobundle_default_git_protocol='https'
 
-" neobundle#begin - neobundle#end の間に導入するプラグインを記載
-NeoBundleFetch 'Shougo/neobundle.vim'
-" ===============================================
-" カラースキーム
-NeoBundle 'tomasr/molokai'
-NeoBundle 'w0ng/vim-hybrid'
+" Required:
+set runtimepath+=/home/shinketya/.cache/dein//repos/github.com/Shougo/dein.vim
 
-" ===============================================
-" ステータスラインの表示内容強化
-NeoBundle 'itchyny/lightline.vim'
-" インデントの可視化
-NeoBundle 'Yggdroot/indentLine'
-" ファイルをtree表示
-NeoBundle 'scrooloose/nerdtree'
-" URLブラウザで開く
-NeoBundle 'open-browser.vim'
-" j/kの移動高速化
-NeoBundle 'deris/vim-gothrough-jk'
-" processing動かすやつ
-NeoBundle 'sophacles/vim-processing'
-" vimrc に記述されたプラグインでインストールされていないものがないかチェックする
-NeoBundleCheck
-call neobundle#end()
+" Required:
+if dein#load_state('/home/shinketya/.cache/dein/')
+	call dein#begin('/home/shinketya/.cache/dein/')
+
+	" Let dein manage dein
+	" Required:
+	call dein#add('/home/shinketya/.cache/dein//repos/github.com/Shougo/dein.vim')
+
+	" Add or remove your plugins here:
+	call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('tomtom/tcomment_vim')
+	"カラースキーム
+	call dein#add('tomasr/molokai')
+	call dein#add('w0ng/vim-hybrid')
+	"ステータスラインの表示強化
+	call dein#add('itchyny/lightline.vim')
+	"css
+	call dein#add('hail2u/vim-css3-syntax')
+	"html
+  "javascript indent
+  call dein#add("vim-scripts/javascript-indent")
+
+
+
+	" You can specify revision/branch/tag.
+	call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
+
+	" Required:
+	call dein#end()
+	call dein#save_state()
+endif
+
+" Required:
 filetype plugin indent on
+syntax enable
 
-" ===============================================
-" カラースキーマの設定
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+	call dein#install()
+endif
+
+"End dein Scripts-------------------------
+" ========================================
+" カラースキームの設定
 set t_Co=256
 syntax on
-colorscheme hybrid
-set background=dark
-
-" ===============================================
+colorscheme molokai
+" ========================================
 " setting
-"文字コードをUFT-8に設定
+" 文字コードをUTF-8に設定
 set fenc=utf-8
 " 保存時の文字コード
 set fileencoding=utf-8
@@ -60,15 +72,13 @@ set noswapfile
 set autoread
 " バッファが編集中でもその他のファイルを開けるように
 set hidden
-" 入力中のコマンドをステータスに表示する
+" 入力中のコマンドをステータスに表示
 set showcmd
-
-" ===============================================
-
+" ========================================
 " 見た目系
 " タイトル表示
 set title
-" 行番号を表示
+" 行番号表示
 set number
 " 現在の行を強調表示
 set cursorline
@@ -84,45 +94,38 @@ set showmatch
 set wildmode=list:longest
 " カラムラインを引く
 set colorcolumn=80
-
-"=====================================
+" ========================================
 " ステータスラインの設定
-"=====================================
+" ========================================
 " ステータスラインを常に表示
 set laststatus=2
 " 現在のモードを表示
 set showmode
 " 打ったコマンドをステータスラインの下に表示
 set showcmd
-" ステータスラインの右側にカーソルの現在位置を表示する
+" ステータスラインの右側にカーソルの現在位置を表示
 set ruler
 
-" ===============================================
-
+" ========================================
 " Tab/indent系
-" 不可視文字を可視化(タブが「▸-」と表示される)
-set list listchars=tab:\▸\-
-" Tab文字を半角スペースにする
+set expandtab
+" タブ文字を半角スペースにする
 set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
-" 改行時に前のインデントを継続する
+" 開業時に前のインデントを継続する
 set autoindent
-" 改行時に入力された行の末尾に合わせて次の行をインデントを増減
+" 開業時に入力された行の末尾に合わせて次の行のインデントを増減
 set smartindent
-" ===============================================
+" ========================================
 " 機能系
-"  インサートモードに入るときに自動でコメントアウトされないようにする
+" ========================================
+" インサートモードに入るときコメントアウトされないように
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set showmatch
 set matchtime=1
-" open-broser.vim
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
 
-" ===============================================
-" processingのやつ
-au BufNewFile,BufRead *,pde setf processing
+
+
