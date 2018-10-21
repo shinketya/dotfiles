@@ -32,10 +32,15 @@ if dein#load_state('/home/shinketya/.cache/dein/')
 	"html
   "javascript indent
   call dein#add("vim-scripts/javascript-indent")
+  "go
+  call dein#add("fatih/vim-go")
+  "swift
+  call dein#add('keith/swift.vim')
 
 
 
-	" You can specify revision/branch/tag.
+
+  " You can specify revision/branch/tag.
 	call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
 
 	" Required:
