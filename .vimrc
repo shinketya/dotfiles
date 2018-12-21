@@ -42,6 +42,11 @@ if dein#load_state('/home/shinketya/.cache/dein/')
   " インデント可視化
   call dein#add('nathanaelkane/vim-indent-guides')
 
+  " VimShell
+
+  call dein#add('Shougo/vimshell.vim')
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+
 
 
 
@@ -140,4 +145,5 @@ set showmatch
 set matchtime=1
 
 
-
+" エイリアス
+:command Tr NERDTree
