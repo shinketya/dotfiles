@@ -47,6 +47,11 @@ if dein#load_state('/home/shinketya/.cache/dein/')
   call dein#add('Shougo/vimshell.vim')
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
+  "括弧補完
+  call dein#add('cohama/lexima.vim')
+  " uniteVim
+  call dein#add('Shougo/unite.vim')
+
 
 
 
