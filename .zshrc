@@ -1,14 +1,3 @@
-# goenv 設定
-export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
-eval "$(goenv init -)"
-# GOPATH 設定
-export GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
-# processingの設定
-export PATH=$PATH:$HOME/processing-3.4/
-export PATH=$PATH:/user/local/android-studio/bin/
-
 # '#' 以降をコメントとして扱う
 setopt interactive_comments
 export PATH=~/swift-4.2.1-RELEASE-ubuntu18.04/usr/bin:$PATH
