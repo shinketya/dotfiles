@@ -248,5 +248,7 @@ alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
 
-        alias ls='ls -F --color=auto'
+alias ls='ls -F --color=auto'
 
+alias win='cd /mnt/c/Users/b1017105'
+alias ubuntu='cd /mnt/c/Users/b1017105/Ubuntu'
